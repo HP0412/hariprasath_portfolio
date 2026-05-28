@@ -599,13 +599,31 @@
     ::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 2px; }
 
     @media (max-width: 768px) {
-      nav { padding: 0 1.25rem; }
-      .nav-links { display: none; }
-      .hero-inner { flex-direction: column; gap: 2.5rem; text-align: center; padding: 4rem 1.25rem; }
+      nav { 
+        padding: 0.8rem 1.25rem; 
+        height: auto; 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 0.8rem; 
+      }
+      .nav-links { 
+        display: flex; 
+        gap: 1.2rem; 
+        overflow-x: auto; 
+        width: 100%; 
+        padding-bottom: 5px;
+        scrollbar-width: none; /* Firefox */
+      }
+      .nav-links::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+      .nav-right { position: absolute; top: 0.8rem; right: 1.25rem; }
+      
+      .hero { min-height: auto; padding-top: 20px; }
+      .hero-inner { flex-direction: column; gap: 1.5rem; text-align: center; padding: 1rem 1.25rem 3rem; }
+      .hero-pic-wrap > div:first-child { margin-top: 0 !important; }
+
       .hero-eyebrow { justify-content: center; }
       .hero-ctas { justify-content: center; }
       .hero-stats { gap: 2rem; justify-content: center; }
-      .hero-desc { margin: 0 auto 2.5rem; }
       .about-grid { grid-template-columns: 1fr; }
       .about-block { border-right: none; }
       .sec, .sec-sm { padding: 4rem 1.25rem; }
