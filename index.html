@@ -602,24 +602,28 @@
       nav { 
         padding: 0.8rem 1.25rem; 
         height: auto; 
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 0.8rem; 
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
       }
       .nav-links { 
+        order: 3;
         display: flex; 
-        gap: 1.2rem; 
+        gap: 1.5rem; 
         overflow-x: auto; 
         width: 100%; 
-        padding-bottom: 5px;
+        padding: 0.8rem 0 0.2rem;
+        margin-top: 0.5rem;
+        border-top: 1px solid var(--border);
         scrollbar-width: none; /* Firefox */
       }
       .nav-links::-webkit-scrollbar { display: none; } /* Chrome/Safari */
-      .nav-right { position: absolute; top: 0.8rem; right: 1.25rem; }
+      .nav-right { position: static; }
       
-      .hero { min-height: auto; padding-top: 20px; }
-      .hero-inner { flex-direction: column; gap: 1.5rem; text-align: center; padding: 1rem 1.25rem 3rem; }
-      .hero-pic-wrap > div:first-child { margin-top: 0 !important; }
+      .hero { min-height: auto; padding-top: 110px; }
+      .hero-inner { flex-direction: column; gap: 1.5rem; text-align: center; padding: 0 1.25rem 3rem; }
+      .hero-pic-wrap > div:first-child { margin-top: 1rem !important; }
 
       .hero-eyebrow { justify-content: center; }
       .hero-ctas { justify-content: center; }
