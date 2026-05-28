@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hari Prasath S — AgriTech Entrepreneur & Founder of Uzhamai Groups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green:      #10b981;
+      --green-dim:  #059669;
+      --green-glow: rgba(16,185,129,0.15);
+      --blue:       #3b82f6;
+      --blue-dim:   #1d4ed8;
+      --blue-glow:  rgba(59,130,246,0.15);
+      --accent:     var(--green);
+      --bg:         #060a10;
+      --bg2:        #0b1018;
+      --surface:    #101520;
+      --card:       #141b26;
+      --nav-bg:     rgba(8, 12, 8, 0.72);
+      --border:     rgba(16, 185, 129, 0.12);
+      --border-hi:  rgba(16, 185, 129, 0.25);
+      --text:       #e2e8f0;
+      --muted:      #64748b;
+      --mono:       'DM Mono', monospace;
+      --display:    'Cormorant Garamond', serif;
+      --sans:       'Syne', sans-serif;
+      --r:          12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 80px; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    body, nav, .about-block, .skill-card, .proj-card, .contact-wrap, .tl-item, .cert-card, .ach-card, a, button, .sktag, .proj-tag, .clink {
+      transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                  color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                  border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #bg-canvas {
+      position: fixed; inset: 0;
+      z-index: 0; pointer-events: none;
+      opacity: 0.5;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 19px;
+      letter-spacing: 0.06em;
+      font-weight: 300;
+      color: var(--text);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 10px var(--blue);
+      animation: breathe 3s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%,100% { opacity:1; box-shadow:0 0 10px var(--blue); }
+      50%      { opacity:.4; box-shadow:0 0 4px var(--blue); }
+    }
+    .nav-links {
+      display: flex; gap: 2.5rem;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .25s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-3px; left:0; right:0; height:1px;
+      background: var(--blue); transform: scaleX(0); transform-origin: left;
+      transition: transform .25s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-theme {
+      background: none; border: 1px solid var(--border);
+      color: var(--muted); border-radius: 50%; /* Reverted border-width to default 1px */
+      width: 34px; height: 34px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s; font-size: 16px;
+    }
+    .nav-theme:hover { border-color: var(--blue); color: var(--blue); }
+    .nav-theme:active { transform: scale(0.85); }
+
+    .wrapper { position: relative; z-index: 10; }
+    .sec { max-width: 1100px; margin: 0 auto; padding: 7rem 2.5rem; }
+    .sec-sm { max-width: 1100px; margin: 0 auto; padding: 5rem 2.5rem; }
+
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 64px;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 2.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+      width: 100%;
+      text-align: center;
+    }
+    .hero-pic-wrap { flex-shrink: 0; position: relative; }
+    .hero-pic-frame {
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 2px solid var(--border-hi); /* Adjusted thickness */
+      padding: 6px;
+      position: relative;
+    }
+    .hero-pic-frame::before {
+      content:''; position:absolute; inset: -10px;
+      border-radius: 50%;
+      border: 1px solid var(--border); /* Reverted to 1px */
+      animation: spin 18s linear infinite;
+    }
+    .hero-pic-frame::after {
+      content:''; position:absolute; inset: -24px;
+      border-radius: 50%;
+      border: 1px dashed rgba(15,168,104,0.12);
+      animation: spin 30s linear infinite reverse;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hero-pic-frame img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .hero-pic-badge {
+      position: absolute; bottom: 8px; right: -12px;
+      background: var(--card);
+      border: 1px solid var(--border-hi);
+      border-radius: 8px;
+      padding: 6px 12px;
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--green);
+      white-space: nowrap;
+    }
+    .hero-content { flex: 1; }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content:''; width: 32px; height: 1px; background: var(--blue);
+    }
+    h1.hero-name {
+      font-family: var(--display);
+      font-size: clamp(52px, 7vw, 86px);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+    h1.hero-name em { font-style: italic; color: var(--green); }
+    .hero-role {
+      font-family: var(--display);
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .name-word { display: inline-flex; align-items: baseline; }
+    .name-first-letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: letterDrop 0.5s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    #word-hari .name-first-letter    { animation-delay: 0.2s; }
+    #word-prasath .name-first-letter { animation-delay: 1.0s; }
+    .name-rest {
+      display: inline-block;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: expandText 0.75s cubic-bezier(.16,1,.3,1) forwards;
+      vertical-align: baseline;
+    }
+    #rest-hari    { animation-delay: 0.5s; }
+    #rest-prasath { animation-delay: 1.3s; }
+    @keyframes letterDrop {
+      from { opacity: 0; transform: translateY(22px); filter: blur(4px); }
+      to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
+    }
+    @keyframes expandText {
+      from { max-width: 0;    opacity: 0; letter-spacing: -0.4em; filter: blur(6px); }
+      to   { max-width: 500px; opacity: 1; letter-spacing: inherit; filter: blur(0); }
+    }
+    #hero-role-line {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeUp 0.6s cubic-bezier(.16,1,.3,1) 2.3s forwards;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .cta-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--sans); font-size: 13px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 14px 28px; border-radius: 4px;
+      background: var(--blue); color: #fff;
+      text-decoration: none; transition: all .25s;
+      font-weight: 600;
+    }
+    .cta-primary:hover { background: var(--green); transform: translateY(-2px); }
+    .cta-primary:active { transform: translateY(0) scale(0.92); filter: brightness(0.8) contrast(1.2); }
+    .cta-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--sans); font-size: 13px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 14px 28px; border-radius: 4px;
+      border: 1px solid var(--green); color: var(--green);
+      text-decoration: none; transition: all .25s;
+      font-weight: 600;
+    }
+    .cta-secondary:hover { background: var(--green); color: #000; }
+    .cta-secondary:active { transform: translateY(0) scale(0.92); background: var(--green); color: #000; }
+    .hero-stats {
+      display: flex; gap: 3rem;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      justify-content: center;
+    }
+    .hstat-num {
+      font-family: var(--display);
+      font-size: 38px; font-weight: 300;
+      color: var(--blue); line-height: 1;
+    }
+    .hstat-label {
+      font-family: var(--mono);
+      font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      margin-top: 5px;
+    }
+
+    .label {
+      font-family: var(--mono);
+      font-size: 10px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--blue);
+      margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .label::after { content:''; flex: 0 0 40px; height: 1px; background: var(--blue); opacity:.4; }
+    h2.stitle {
+      font-family: var(--display);
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 300; line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+    h2.stitle em { font-style: italic; color: var(--green); }
+    .sdesc {
+      font-size: 15px; color: var(--muted); line-height: 1.9;
+      max-width: 680px; margin-bottom: 3.5rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .about-block {
+      padding: 2.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      cursor: pointer;
+    }
+    .about-block:hover { border-color: var(--border-hi); }
+    .about-block:active { transform: scale(0.98) translateY(2px); filter: brightness(0.9); }
+    .about-block-label {
+      font-family: var(--mono);
+      font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--green);
+      margin-bottom: 1rem;
+    }
+    .about-block p { font-size: 15px; color: var(--muted); line-height: 1.85; }
+    .about-block strong { color: var(--text); font-weight: 500; }
+
+    .skill-cat-label {
+      font-family: var(--mono);
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .skill-cat-label::before { content:''; width: 20px; height: 1px; background: var(--muted); }
+    .skills-wrap { display: flex; flex-direction: column; gap: 3rem; }
+    .skill-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border); /* Reverted to 1px */
+      border-radius: var(--r);
+      padding: 1.4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .skill-card::before {
+      content:''; position:absolute; inset: 0;
+      background: linear-gradient(135deg, var(--green-glow) 0%, transparent 60%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .skill-card:hover { border-color: var(--border-hi); transform: translateY(-3px); }
+    .skill-card:hover::before { opacity: 1; }
+    .skill-card:active { transform: scale(0.97) translateY(2px); filter: brightness(0.9); }
+    .ski { font-size: 20px; color: var(--green); margin-bottom: 10px; }
+    .skname { font-size: 14px; font-weight: 600; margin-bottom: 10px; color: var(--text); letter-spacing: 0.02em; }
+    .sktags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .sktag {
+      font-family: var(--mono);
+      font-size: 10px; padding: 3px 9px;
+      border-radius: 4px;
+      background: rgba(16, 185, 129, 0.04);
+      color: var(--muted);
+      border: 1px solid rgba(16, 185, 129, 0.08);
+    }
+
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .proj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      position: relative;
+      cursor: pointer;
+    }
+    .proj-card::before {
+      content:''; position:absolute; inset: 0;
+      background: linear-gradient(135deg, var(--green-glow) 0%, transparent 60%);
+      opacity: 0; transition: opacity .3s;
+      pointer-events: none;
+    }
+    .proj-card:hover { border-color: var(--border-hi); transform: translateY(-3px); }
+    .proj-card:hover::before { opacity: 1; }
+    .proj-card:active { transform: scale(0.97) translateY(4px); filter: brightness(0.9); }
+    .proj-thumb {
+      height: 160px;
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg2) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; color: var(--green);
+      position: relative; overflow: hidden;
+    }
+    .proj-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; position: absolute; inset: 0; display: block; z-index: 1; }
+    .proj-thumb::after {
+      content:''; position:absolute; inset:0;
+      background: linear-gradient(to bottom, transparent 50%, var(--card));
+      z-index: 2; pointer-events: none;
+    }
+    .proj-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .proj-top { display: flex; align-items: flex-start; justify-content: space-between; }
+    .proj-name { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: 0.01em; }
+    .proj-badge {
+      font-family: var(--mono);
+      font-size: 10px; padding: 3px 9px;
+      border-radius: 4px;
+      background: rgba(15,168,104,0.12);
+      color: var(--green);
+      border: 1px solid var(--border-hi);
+      white-space: nowrap;
+    }
+    .proj-desc { font-size: 13px; color: var(--muted); line-height: 1.7; flex: 1; }
+    .proj-stack { display: flex; flex-wrap: wrap; gap: 5px; }
+    .proj-tag { font-family: var(--mono); font-size: 10px; padding: 3px 8px; border-radius: 3px; background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+    .proj-link {
+      margin-top: 0.5rem;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--blue); text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 1px solid rgba(59,130,246,0.3);
+      transition: border-color .2s; width: fit-content;
+    }
+    .proj-link:hover { border-color: var(--blue); }
+    .cert-hint { margin-top: 0.8rem; display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--blue); opacity: 0.9; user-select: none; }
+
+    .tl { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .tl::before {
+      content:''; position:absolute; left: 0; top:0; bottom:0; width:1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent); /* Reverted to 1px width */
+    }
+    .tl-item {
+      display: flex; gap: 2.5rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      border-radius: var(--r);
+    }
+    .tl-item:hover { border-color: var(--border-hi); background: var(--card); }
+    .tl-item:active { transform: scale(0.98); background: var(--surface); }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-left { flex-shrink: 0; width: 130px; padding-left: 1.5rem; position: relative; }
+    .tl-left::before {
+      content:''; position:absolute; left: -4.5px; top: 6px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green); box-shadow: 0 0 12px var(--green);
+    }
+    .tl-date { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
+    .tl-right { flex: 1; }
+    .tl-role { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .tl-org { font-family: var(--display); font-size: 18px; font-style: italic; color: var(--green); margin-bottom: 10px; }
+    .tl-detail { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+    .cert-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .cert-card {
+      background: var(--card); border: 1px solid var(--border); /* Reverted to 1px */
+      border-radius: var(--r); padding: 1.5rem;
+      display: flex; align-items: flex-start; gap: 14px;
+      transition: border-color .25s;
+    }
+    .cert-card:hover { border-color: var(--border-hi); }
+    .cert-card:active { transform: scale(0.97) translateY(2px); filter: brightness(0.9); }
+    .cert-icon { font-size: 22px; color: var(--green); flex-shrink: 0; margin-top: 2px; }
+    .cert-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .cert-org { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; }
+    .cert-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin-top: 8px; }
+    .ach-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .ach-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 2rem 1.5rem;
+      text-align: center; transition: all .3s;
+      position: relative; overflow: hidden;
+      cursor: pointer;
+    }
+    .ach-card::before {
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(circle at 50% 0%, var(--green-glow), transparent 60%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .ach-card:hover { border-color: var(--border-hi); transform: translateY(-3px); }
+    .ach-card:hover::before { opacity: 1; }
+    .ach-card:active { transform: scale(0.97) translateY(2px); filter: brightness(0.9); }
+    .ach-icon { font-size: 26px; color: var(--green); margin-bottom: 10px; }
+    .ach-val { font-family: var(--display); font-size: 36px; font-weight: 300; color: var(--text); line-height: 1; }
+    .ach-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+
+    /* Achievement Section - Vertical Grid with Gold Theme */
+    #achievements .proj-card { border: 1px solid rgba(245, 158, 11, 0.15); }
+    #achievements .proj-card:hover { border-color: #f59e0b; }
+    #achievements .proj-name { color: #f59e0b; }
+    #achievements .proj-tag { 
+      background: rgba(245,158,11,0.05); color: #f59e0b; border: 1px solid rgba(245,158,11,0.1); 
+    }
+    #achievements .cert-hint { color: #f59e0b; }
+    #achievements .label { color: #f59e0b; }
+    #achievements .label::after { background: #f59e0b; }
+    #achievements h2.stitle em { color: #f59e0b; }
+    .contact-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .contact-wrap::before {
+      content:'';
+      position: absolute; top:-1px; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--blue), var(--green), transparent);
+    }
+    .contact-wrap::after {
+      content:'';
+      position: absolute; inset:0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .contact-wrap h2 {
+      font-family: var(--display);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300; margin-bottom: 0.75rem;
+    }
+    .contact-wrap h2 em { font-style: italic; color: var(--green); }
+    .contact-wrap p { font-size: 15px; color: var(--muted); margin-bottom: 2.5rem; }
+    .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .clink {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 12px 20px; border-radius: 6px;
+      border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      transition: all .22s;
+    }
+    .clink:hover { border-color: var(--border-hi); color: var(--blue); background: var(--blue-glow); }
+    .clink:active { transform: scale(0.92); background: var(--blue); color: #fff; }
+    .clink i { font-size: 16px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--mono);
+      font-size: 11px; color: var(--muted); letter-spacing: 0.06em;
+      max-width: 1100px; margin: 0 auto;
+    }
+
+    /* Image Modal / Lightbox */
+    .img-modal {
+      display: none;
+      position: fixed; z-index: 1000;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      justify-content: center; align-items: center;
+      padding: 2rem;
+      cursor: zoom-out;
+    }
+    .img-modal.open { display: flex; animation: fadeIn 0.3s ease; }
+    .img-modal img {
+      max-width: 95%; max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+    }
+    .img-modal.open img { transform: scale(1); }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.05s; }
+    .reveal-d2 { transition-delay: 0.12s; }
+    .reveal-d3 { transition-delay: 0.2s; }
+    .reveal-d4 { transition-delay: 0.28s; }
+    .reveal-d5 { transition-delay: 0.35s; }
+    .reveal-d6 { transition-delay: 0.42s; }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .hero-inner { flex-direction: column; gap: 2.5rem; text-align: center; padding: 4rem 1.25rem; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-ctas { justify-content: center; }
+      .hero-stats { gap: 2rem; justify-content: center; }
+      .hero-desc { margin: 0 auto 2.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-block { border-right: none; }
+      .sec, .sec-sm { padding: 4rem 1.25rem; }
+      .tl-item { flex-direction: column; gap: 1rem; }
+      .tl-left { width: auto; }
+      footer { flex-direction: column; gap: .5rem; text-align: center; }
+      .cert-row { grid-template-columns: repeat(1, 1fr); }
+    }
+    @media (max-width: 1024px) {
+      .cert-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    .cert-row { grid-template-columns: repeat(3, 1fr); }
+
+    /* ══════════════════════════════════════════
+       LIGHT THEME — Complete override
+       ══════════════════════════════════════════ */
+    html.light {
+      --green:      #059669;
+      --green-dim:  #047857;
+      --green-glow: rgba(5,150,105,0.08);
+      --blue:       #2563eb;
+      --blue-dim:   #1d4ed8;
+      --blue-glow:  rgba(37,99,235,0.08);
+      --accent:     #2563eb;
+      --bg:         #f8fafc;
+      --bg2:        #f1f5f9;
+      --surface:    #e2e8f0;
+      --card:       #ffffff;
+      --nav-bg:     rgba(248, 250, 252, 0.92);
+      --border:     rgba(37, 99, 235, 0.08);
+      --border-hi:  rgba(37, 99, 235, 0.2);
+      --text:       #0f172a;
+      --muted:      #475569;
+    }
+
+    /* Nav light fix */
+    html.light nav {
+      box-shadow: 0 1px 0 rgba(15,23,42,0.08), 0 4px 20px rgba(15,23,42,0.04);
+    }
+
+    /* Card shadows in light mode */
+    html.light .about-block,
+    html.light .skill-card,
+    html.light .proj-card,
+    html.light .cert-card,
+    html.light .ach-card,
+    html.light .contact-wrap {
+      box-shadow: 0 1px 3px rgba(15,23,42,0.06), 0 4px 16px rgba(15,23,42,0.04);
+    }
+
+    /* hero-pic-frame::after light */
+    html.light .hero-pic-frame::after {
+      border: 2px dashed rgba(37,99,235,0.25); /* Increased thickness and alpha */
+    }
+
+    /* proj-thumb light */
+    html.light .proj-thumb {
+      background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+    }
+
+    /* sktag light */
+    html.light .sktag {
+      background: rgba(5, 150, 105, 0.03);
+      border-color: rgba(15, 23, 42, 0.06);
+    }
+
+    /* proj-tag light */
+    html.light .proj-tag {
+      background: #f1f5f9;
+      border-color: rgba(15,23,42,0.10);
+    }
+
+    /* scrollbar light */
+    html.light ::-webkit-scrollbar-track { background: #f8fafc; }
+    html.light ::-webkit-scrollbar-thumb { background: #059669; }
+
+    /* body bg transition */
+    html.light body { background: #f8fafc; }
+
+    /* nav-logo-dot in light — stronger glow contrast */
+    html.light .nav-logo-dot {
+      background: #2563eb;
+      box-shadow: 0 0 8px rgba(37,99,235,0.5);
+    }
+
+    /* tl dot in light */
+    html.light .tl-left::before {
+      background: #059669;
+      box-shadow: 0 0 8px rgba(5,150,105,0.4);
+    }
+
+    /* canvas bg lighter opacity in light mode handled in JS */
+  </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="wrapper">
+
+<nav>
+  <span class="nav-logo"><span class="nav-logo-dot"></span>Hari Prasath S</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#media">Media</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="nav-theme" id="theme-toggle" title="Toggle theme"><i class="ti ti-sun"></i></button>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-pic-wrap">
+      <div style="margin-top: 2rem;"></div>
+      <div class="hero-pic-frame">
+        <img src="me02.jpeg" alt="Hari Prasath S"/>
+      </div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-name" id="hero-name-anim">
+        <span class="name-word" id="word-hari">
+          <span class="name-first-letter">H</span><span class="name-rest" id="rest-hari">ari</span>
+        </span>
+        <em style="margin-left: 0.35rem;">
+          <span class="name-word" id="word-prasath">
+            <span class="name-first-letter">P</span><span class="name-rest" id="rest-prasath">rasath S</span>
+          </span>
+        </em>
+      </h1>
+      <p class="hero-role" id="hero-role-line">Founder of Uzhamai Groups • AgriTech Entrepreneur</p>
+      <p class="hero-desc">Developing technology-driven solutions focused on improving efficiency and sustainability across agriculture, aquaculture, and food sectors.</p>
+      <div class="hero-ctas">
+        <a href="Hari_Prasath_Resume.pdf" download class="cta-primary"><i class="ti ti-file-description"></i> Download CV</a>
+        <a href="#projects" class="cta-secondary"><i class="ti ti-arrow-right"></i> View Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="label reveal">Identity</div>
+  <h2 class="stitle reveal reveal-d1">Bridging <em>Agriculture</em><br>& Engineering</h2>
+  <div class="about-grid reveal reveal-d2">
+    <div class="about-block">
+      <div class="about-block-label">Who I am</div>
+      <p>As a <strong>B.Tech Agricultural Engineering student</strong> at Erode Sengunthar Engineering College, I bridge the gap between traditional farming and technology. I am passionate about modernizing agriculture, aquaculture, and food systems through innovation.</p>
+    </div>
+    <div class="about-block">
+      <div class="about-block-label">What I build</div>
+      <p>Through my startup, <strong>Uzhamai Groups</strong>, I develop technology-driven solutions across agriculture, aquaculture, and food systems. I focus on building practical, real-world applications that improve efficiency, accessibility, and sustainability through innovation in farming, aquatic systems, and food production.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="education">
+  <div class="label reveal">Foundation</div>
+  <h2 class="stitle reveal reveal-d1">Academic <em>Education</em></h2>
+  <div class="tl reveal reveal-d2">
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-date">2024 — 2028</div></div>
+      <div class="tl-right">
+        <div class="tl-role">B.Tech Agricultural Engineering</div>
+        <div class="tl-org">Erode Sengunthar Engineering College</div>
+        <div class="tl-detail">Focusing on integrating modern engineering principles with agricultural systems, aquaculture, and sustainable food production technology.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-date">2022 — 2024</div></div>
+      <div class="tl-right">
+        <div class="tl-role">Higher Secondary Education (Bio-Maths)</div>
+        <div class="tl-org">Sengunthar Boys Higher Secondary School</div>
+        <div class="tl-detail">Completed schooling with an aggregate of 85.16%, specializing in the Bio-Maths stream to build a strong scientific foundation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="skills">
+  <div class="label reveal">Capabilities</div>
+  <h2 class="stitle reveal reveal-d1">Skills <em>&</em> Tools</h2>
+  <p class="sdesc reveal reveal-d2">My technical and domain expertise across the AgriTech landscape.</p>
+  <div class="skills-wrap">
+    <div class="reveal reveal-d1">
+      <div class="skill-cat-label">Technical Skills</div>
+      <div class="skill-row">
+        <div class="skill-card"><div class="ski"><i class="ti ti-code"></i></div><div class="skname">Development & AI</div><div class="sktags"><span class="sktag">Python</span><span class="sktag">AI Basics</span></div></div>
+        <div class="skill-card"><div class="ski"><i class="ti ti-cpu"></i></div><div class="skname">IoT & Embedded</div><div class="sktags"><span class="sktag">Arduino</span><span class="sktag">IoT Systems</span></div></div>
+        <div class="skill-card"><div class="ski"><i class="ti ti-settings-automation"></i></div><div class="skname">Automation</div><div class="sktags"><span class="sktag">Sensor Integration</span><span class="sktag">Automation Systems</span></div></div>
+      </div>
+    </div>
+    <div class="reveal reveal-d2">
+      <div class="skill-cat-label">Agriculture Skills</div>
+      <div class="skill-row">
+        <div class="skill-card"><div class="ski"><i class="ti ti-plant-2"></i></div><div class="skname">Smart Farming</div><div class="sktags"><span class="sktag">Hydroponics</span><span class="sktag">Precision Farming</span><span class="sktag">Smart Farming</span></div></div>
+        <div class="skill-card"><div class="ski"><i class="ti ti-building-community"></i></div><div class="skname">Systems & Infrastructure</div><div class="sktags"><span class="sktag">Greenhouse Systems</span><span class="sktag">Sustainable Food Systems</span><span class="sktag">Irrigation Concepts</span></div></div>
+        <div class="skill-card"><div class="ski"><i class="ti ti-bulb"></i></div><div class="skname">Research & Innovation</div><div class="sktags"><span class="sktag">Aquaculture Basics</span><span class="sktag">Soil Science Basics</span><span class="sktag">AgriTech Innovation</span></div></div>
+      </div>
+    </div>
+    <div class="reveal reveal-d3">
+      <div class="skill-cat-label">Business & Research Skills</div>
+      <div class="skill-row">
+        <div class="skill-card"><div class="ski"><i class="ti ti-chart-dots"></i></div><div class="skname">Strategy & Development</div><div class="sktags"><span class="sktag">Market Analysis</span><span class="sktag">Startup Development</span><span class="sktag">Innovation Strategy</span></div></div>
+        <div class="skill-card"><div class="ski"><i class="ti ti-search"></i></div><div class="skname">Product & Design</div><div class="sktags"><span class="sktag">Product Research</span><span class="sktag">Sustainable Solution Design</span><span class="sktag">Concept Development</span></div></div>
+        <div class="skill-card"><div class="ski"><i class="ti ti-brain"></i></div><div class="skname">Problem Solving</div><div class="sktags"><span class="sktag">Business Ideation</span><span class="sktag">Problem Solving</span><span class="sktag">Strategic Thinking</span></div></div>
+      </div>
+    </div>
+    <div class="reveal reveal-d4">
+      <div class="skill-cat-label">Software & Tools</div>
+      <div class="skill-row">
+        <div class="skill-card"><div class="ski"><i class="ti ti-terminal-2"></i></div><div class="skname">Development Tools</div><div class="sktags"><span class="sktag">VS Code</span><span class="sktag">GitHub</span><span class="sktag">Arduino IDE</span></div></div>
+        <div class="skill-card"><div class="ski"><i class="ti ti-layout-grid-add"></i></div><div class="skname">Productivity & Design</div><div class="sktags"><span class="sktag">Canva</span><span class="sktag">MS Office</span><span class="sktag">Google Workspace</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="projects">
+  <div class="label reveal">My Work</div>
+  <h2 class="stitle reveal reveal-d1">Featured <em>Projects</em></h2>
+  <p class="sdesc reveal reveal-d2">Innovative solutions at the intersection of tech and agriculture.</p>
+  <div class="proj-grid">
+    <div class="proj-card reveal reveal-d1">
+      <div class="proj-thumb"><img src="payirkudil image.jpeg" alt="PAYIRKUDIL (Modular Biome)"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">PAYIRKUDIL (Modular Biome)</div><span class="proj-badge">IoT / Hydro</span></div>
+        <div class="proj-desc">A modular hexagonal vertical farming system integrating hydroponics and aquaponics with ESP32-based monitoring and AI plant health detection.</div>
+        <div class="proj-stack"><span class="proj-tag">Arduino</span><span class="proj-tag">IoT</span><span class="proj-tag">AI</span></div>
+        <a href="https://drive.google.com/file/d/1jx8UkuxET0mSOx-8xVjEBhM1JzbSBy7I/view?usp=sharing" target="_blank" class="proj-link">View Project <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="proj-card reveal reveal-d2">
+      <div class="proj-thumb"><img src="SIS.jpg" alt="Smart Irrigation System"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Smart Irrigation System</div><span class="proj-badge">IoT</span></div>
+        <div class="proj-desc">Automated irrigation system using IoT sensors to monitor soil moisture and environmental conditions in real-time, optimizing water usage.</div>
+        <div class="proj-stack"><span class="proj-tag">Arduino</span><span class="proj-tag">Sensors</span></div>
+        <a href="https://drive.google.com/file/d/14Qq2_jB4hSBGZsUgkSH3HG5VD4FtN0UD/view?usp=drive_link" target="_blank" class="proj-link">Details <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="proj-card reveal reveal-d3">
+      <div class="proj-thumb"><img src="GHL.png" alt="Greenhouse Foundation"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Greenhouse Foundation</div><span class="proj-badge">Design</span></div>
+        <div class="proj-desc">Structural design and layout planning for a greenhouse building, focusing on space utilization and alignment for protected cultivation.</div>
+        <div class="proj-stack"><span class="proj-tag">AutoCAD</span><span class="proj-tag">Engineering</span></div>
+        <a href="https://drive.google.com/file/d/1teKaNjwAJOT7dltaam_C6DqLijWsV0KP/view?usp=sharing" target="_blank" class="proj-link">Case Study <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="proj-card reveal reveal-d4">
+      <div class="proj-thumb"><img src="UAWEB.png" alt="Uzhamai Aquanics Website"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Uzhamai Aquanics Website</div><span class="proj-badge">Website</span></div>
+        <div class="proj-desc">Built the official website for Uzhamai Aquanics, showcasing its work in aquaculture, fish trading, and sustainable agritech solutions.</div>
+        <div class="proj-stack"><span class="proj-tag">Startup</span><span class="proj-tag">Aquaculture</span><span class="proj-tag">Trading</span></div>
+        <a href="https://uzhamai-aquanics.github.io/uzhamai-web/" target="_blank" class="proj-link">View Site <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="proj-card reveal reveal-d5">
+      <div class="proj-thumb"><img src="UADB.png" alt="Uzhamai Aquanics Dashboard"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Uzhamai Aquanics Dashboard</div><span class="proj-badge">Dashboard</span></div>
+        <div class="proj-desc">Built a dashboard for Uzhamai Aquanics to manage and monitor aquaculture and fish trading operations efficiently.</div>
+        <div class="proj-stack"><span class="proj-tag">Aquaculture</span><span class="proj-tag">Trading</span><span class="proj-tag">Startup</span></div>
+        <a href="https://uzhamai-aquanics-dashboard.github.io/uzhamai-dashboard/" target="_blank" class="proj-link">Explore Dashboard <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div> 
+  </div>
+</section>
+
+<section class="sec" id="experience">
+  <div class="label reveal">Journey</div>
+  <h2 class="stitle reveal reveal-d1"><em>Experience</em></h2>
+  <p class="sdesc reveal reveal-d2">A timeline of innovation and exploration in AgriTech.</p>
+  <div class="tl reveal reveal-d2">
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-date">2025 — Present</div></div>
+      <div class="tl-right">
+        <div class="tl-role">Founder</div>
+        <div class="tl-org">Uzhamai Groups</div>
+        <div class="tl-detail">Leading an Erode-based startup to modernize aquaculture and farming through smart monitoring systems, optimized feed solutions, and sustainable practices.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-date">40 Days</div></div>
+      <div class="tl-right">
+        <div class="tl-role">Project Development Intern</div>
+        <div class="tl-org">Marabanu Private Limited</div>
+        <div class="tl-detail">Assisted in project lifecycle development, gaining hands-on experience in technical implementation and project management within the sector.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-date">14 Days</div></div>
+      <div class="tl-right">
+        <div class="tl-role">Hydroponic Agri-Research Intern</div>
+        <div class="tl-org">HyKrops</div>
+        <div class="tl-detail">Conducted research on hydroponic systems and dutch bucket farming prototypes, focusing on real-time nutrient monitoring and crop optimization.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="media">
+  <div class="label reveal">Influence</div>
+  <h2 class="stitle reveal reveal-d1">Digital <em>Presence</em></h2>
+  <p class="sdesc reveal reveal-d2">Building a community and sharing knowledge through AgriTech content creation and educational outreach.</p>
+  <div class="about-grid reveal reveal-d2">
+    <div class="about-block">
+      <div class="about-block-label">@uzhamai_official</div>
+      <p style="margin-bottom: 1.5rem;">Managing a growing community of <strong>18K+ on Instagram</strong> and <strong>1K+ on YouTube</strong>, focusing on creating accessible AgriTech educational content.</p>
+      <div class="contact-links" style="justify-content: flex-start; gap: 12px;">
+        <a href="https://www.instagram.com/uzhamai_official?igsh=MWQ2YXBxODVuMXQybw==" target="_blank" class="clink" style="padding: 12px 16px;"><i class="ti ti-brand-instagram"></i></a>
+        <a href="https://youtube.com/@uzhamai_official?si=-gbMxO5r6QMY9JQ2" target="_blank" class="clink" style="padding: 12px 16px;"><i class="ti ti-brand-youtube"></i></a>
+      </div>
+    </div>
+    <div class="about-block">
+      <div class="about-block-label">Uzhamai Aquanics</div>
+      <p style="margin-bottom: 1.5rem;">Established a multi-platform digital identity across social channels to modernize aquaculture and sustainable farming through technology.</p>
+      <div class="contact-links" style="justify-content: flex-start; gap: 12px;">
+        <a href="https://www.instagram.com/uzhamai_aquanics?igsh=MXh4YTl3dG83Njk0NA==" target="_blank" class="clink" style="padding: 12px 16px;"><i class="ti ti-brand-instagram"></i></a>
+        <a href="https://youtube.com/@uzhamaiaquanics?si=d6bqD-XbonW-ocbq" target="_blank" class="clink" style="padding: 12px 16px;"><i class="ti ti-brand-youtube"></i></a>
+        <a href="https://www.facebook.com/share/1Cm8Buqc5X/" target="_blank" class="clink" style="padding: 12px 16px;"><i class="ti ti-brand-facebook"></i></a>
+        <a href="https://www.linkedin.com/company/uzhamai-aquanics/" target="_blank" class="clink" style="padding: 12px 16px;"><i class="ti ti-brand-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-sm" id="certifications">
+  <div class="label reveal">Verified</div>
+  <h2 class="stitle reveal reveal-d1"><em>Certifications</em></h2>
+  <div class="cert-row reveal reveal-d2">
+    <!-- NSS Certificate -->
+    <div class="proj-card reveal reveal-d1">
+      <div class="proj-thumb"><img src="NSS2.jpg" data-full="NSS.jpg" alt="NSS Certificate ‘A’"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">NSS Certificate ‘A’</div></div>
+        <div class="proj-desc">Served as an NSS volunteer from 2022 to 2024 and received NSS Certificate ‘A’ for active participation in community service and social welfare initiatives.</div>
+        <div class="proj-stack"><span class="proj-tag">Social Welfare</span><span class="proj-tag">Community Service</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+    <!-- Arduino Workshop Certificate -->
+    <div class="proj-card reveal reveal-d2">
+      <div class="proj-thumb"><img src="AW.jpg" data-full="BIBOX ARDUINO.jpg" alt="Arduino Workshop Certificate"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Arduino Workshop</div></div>
+        <div class="proj-desc">Gained hands-on expertise in microcontroller programming, sensor integration, and IoT automation during an intensive 3-day technical workshop conducted by Bibox Labs.</div>
+        <div class="proj-stack"><span class="proj-tag">IoT</span><span class="proj-tag">Automation</span><span class="proj-tag">Electronics</span><span class="proj-tag">Bibox</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+    <!-- Beekeeping Training Program Certificate -->
+    <div class="proj-card reveal reveal-d3">
+      <div class="proj-thumb"><img src="BEE.avif" data-full="HONEY BEE TRAINING.jpg" alt="Beekeeping Training Certificate"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Beekeeping Training Program</div></div>
+        <div class="proj-desc">Acquired technical knowledge in apiculture management and sustainable farming at TNAU, focusing on bee biology and the ecological benefits of integrated agriculture.</div>
+        <div class="proj-stack"><span class="proj-tag">Apiculture</span><span class="proj-tag">TNAU</span><span class="proj-tag">Beekeeping</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+    <!-- Hydroponic Agri-Research Internship Certificate -->
+    <div class="proj-card reveal reveal-d4">
+      <div class="proj-thumb"><img src="hy.jpg" data-full="HYKROPS.jpg" alt="HyKrops Internship Certificate"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">HyKrops Internship</div></div>
+        <div class="proj-desc">Completed research-focused training in hydroponic cultivation, nutrient optimization, and precision agriculture practices within a commercial soilless farming facility.</div>
+        <div class="proj-stack"><span class="proj-tag">Hydroponics</span><span class="proj-tag">Agri-Research</span><span class="proj-tag">HyKrops</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+    <!-- SRISHTI 2026 Certificate -->
+    <div class="proj-card reveal reveal-d5">
+      <div class="proj-thumb"><img src="SR.jpeg" data-full="SRISHTI.jpg" alt="SRISHTI 2026 Certificate" style="object-position: center 45%;"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">SRISHTI 2026 Project Exhibition</div></div>
+        <div class="proj-desc">Presented the 'Bio-Pod' project at a national level, demonstrating innovative solutions for decentralized food systems, resilient nutritional security, and preventive healthcare.</div>
+        <div class="proj-stack"><span class="proj-tag">Project Exhibition</span><span class="proj-tag">Bio-Pod</span><span class="proj-tag">Kerala</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+    <!-- iStart Hackathon'26 Certificate -->
+    <div class="proj-card reveal reveal-d6">
+      <div class="proj-thumb"><img src="KIO.png" data-full="KIOT.jpg" alt="iStart Hackathon’26 Certificate"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">iStart Hackathon’26</div></div>
+        <div class="proj-desc">Developed scalable technical solutions during a 24-hour national-level innovation challenge organized by StartupTN, focusing on tech-driven entrepreneurship.</div>
+        <div class="proj-stack"><span class="proj-tag">Hackathon</span><span class="proj-tag">Innovation</span><span class="proj-tag">StartupTN</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+    <!-- Prathiyogitha Volume 2 Certificate -->
+    <div class="proj-card reveal reveal-d1">
+      <div class="proj-thumb"><img src="download.jpeg" data-full="KONGU.jpg" alt="Prathiyogitha Hackathon Certificate"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Prathiyogitha Hackathon</div></div>
+        <div class="proj-desc">Participated in a high-stakes IEEE hackathon focused on collaborative innovation, rapid technical prototyping, and solving complex real-world engineering challenges.</div>
+        <div class="proj-stack"><span class="proj-tag">Hackathon</span><span class="proj-tag">IEEE</span><span class="proj-tag">Kongu Engineering College</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+    <!-- FoundR Sprint 1.0 Certificate -->
+    <div class="proj-card reveal reveal-d2">
+      <div class="proj-thumb"><img src="BC.png" data-full="BOOTCAMP.png" alt="FoundR Sprint 1.0 Certificate"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">FoundR Sprint 1.0</div></div>
+        <div class="proj-desc">Completed an intensive week-long startup learning program focused on lean methodologies, market validation strategies, and developing scalable foundations for innovative business ventures.</div>
+        <div class="proj-stack"><span class="proj-tag">Startup Sprint</span><span class="proj-tag">Entrepreneurship</span><span class="proj-tag">Marabanu</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+    <!-- HP LIFE Course Certificate -->
+    <div class="proj-card reveal reveal-d4">
+      <div class="proj-thumb"><img src="hp.png" data-full="HPLIFE.png" alt="HP LIFE Course Certificate"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">HP LIFE Course: Growth Engine for Your Business</div></div>
+        <div class="proj-desc">Completed the HP LIFE online course, gaining practical skills in identifying growth engines, developing business strategies, and fostering entrepreneurial innovation.</div>
+        <div class="proj-stack"><span class="proj-tag">Business Strategy</span><span class="proj-tag">Entrepreneurship</span><span class="proj-tag">HP LIFE</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+    <!-- IoT Introduction Certificate -->
+    <div class="proj-card reveal reveal-d3">
+      <div class="proj-thumb"><img src="SIM.webp" data-full="SKILLUP.png" alt="Introduction to IoT Certificate"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Introduction to IoT</div></div>
+        <div class="proj-desc">Gained fundamental insights into IoT architecture, communication protocols, and industrial applications through a certified 'Introduction to IoT' course from Simplilearn SkillUp.</div>
+        <div class="proj-stack"><span class="proj-tag">IoT</span><span class="proj-tag">Networking</span><span class="proj-tag">Simplilearn</span></div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec-sm" id="achievements">
+  <div class="label reveal">Successes</div>
+  <h2 class="stitle reveal reveal-d1"><em>Achievements</em></h2>
+  <div class="cert-row reveal reveal-d2">
+    <!-- JCI Award -->
+    <div class="proj-card reveal reveal-d2">
+      <div class="proj-thumb"><img src="JCI.png" data-full="EXCELL AWARD.jpg" alt="JCI Excellence Award"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">JCI Excellence Award</div></div>
+        <div class="proj-desc">Awarded the 'Excellence Award' for outstanding performance in the District Level General Knowledge Competition organized by JCI, demonstrating exceptional academic proficiency.</div>
+        <div class="proj-stack">
+          <span class="proj-tag">Leadership</span>
+          <span class="proj-tag">General Knowledge</span>
+        </div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <!-- SCIENSEA Award -->
+    <div class="proj-card reveal reveal-d3">
+      <div class="proj-thumb"><img src="POSTER.png" data-full="SCIENSEA.jpg" alt="SCIENSEA Poster Palooza"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Poster Presentation — 2nd Prize</div></div>
+        <div class="proj-desc">Won the II Prize and a ₹800 cash prize at SCIENSEA '24, a National Level Technical Symposium held at Kongu Engineering College, for presenting innovative technical research and design.</div>
+        <div class="proj-stack">
+          <span class="proj-tag">Poster Presentation</span>
+          <span class="proj-tag">Cash Prize</span>
+        </div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <!-- SNS Ideathon -->
+    <div class="proj-card reveal reveal-d1">
+      <div class="proj-thumb"><img src="SNS IDEATHON IMAGE.jpg" data-full="SNS IDEATHON.jpg" alt="SNS Ideathon 1st Prize Winner"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">SNS Ideathon — 1st Prize Winner</div></div>
+        <div class="proj-desc">Secured the First Prize and a ₹5,00,000 cash award at the SNS Ideathon Innovation Challenge. Recognized for conceptualizing a high-impact tech-driven solution for agricultural modernization.</div>
+        <div class="proj-stack">
+          <span class="proj-tag">Ideathon</span>
+          <span class="proj-tag">₹5L cash prize</span>
+        </div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <!-- Student Achiever Award -->
+    <div class="proj-card reveal reveal-d4">
+      <div class="proj-thumb"><img src="STUDENT ACHIEVER IMAGE.jpg" data-full="STUDENT ACHIEVER.jpg" alt="Student Achiever Award"/></div>
+      <div class="proj-body">
+        <div class="proj-top"><div class="proj-name">Student Achiever Award</div></div>
+        <div class="proj-desc">Honored with the 'Student Achiever' award in recognition of exceptional academic merit, leadership qualities, and significant contributions to the college community and technical projects.</div>
+        <div class="proj-stack">
+          <span class="proj-tag">Achievement</span>
+          <span class="proj-tag">Academic Excellence</span>
+        </div>
+        <div class="cert-hint">View Certificate <i class="ti ti-arrow-up-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="contact-wrap reveal">
+    <h2>Let's <em>innovate</em><br>together.</h2>
+    <p>Open to co-founders, investors, and interesting AgriTech problems.</p>
+    <div class="contact-links">
+      <a href="mailto:hariprasathofficial0412@gmail.com" class="clink" style="padding: 12px 16px;"><i class="ti ti-mail"></i></a>
+      <a href="tel:9360985854" class="clink" style="padding: 12px 16px;"><i class="ti ti-phone"></i></a>
+      <a href="https://github.com/HP0412" target="_blank" class="clink" style="padding: 12px 16px;"><i class="ti ti-brand-github"></i></a>
+      <a href="https://www.linkedin.com/public-profile/settings/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3B%2FQezBM%2FpSP%2Bm%2FjALO3hwwg%3D%3D" target="_blank" class="clink" style="padding: 12px 16px;"><i class="ti ti-brand-linkedin"></i></a>
+    </div>
+  </div>
+</section>
+
+<div id="img-modal" class="img-modal">
+  <img id="modal-img" src="" alt="Full Project Image">
+</div>
+
+<footer>
+  <span>© <span id="year">2026</span> HARI PRASATH S</span>
+  <span>Founder of Uzhamai Groups • AgriTech Entrepreneur</span>
+</footer>
+
+</div>
+
+<script>
+/* ── CANVAS PARTICLE FIELD ── */
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  const COUNT = 110; 
+  const DISTANCE = 100; 
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.5; /* Even faster movement */
+      this.vy = (Math.random() - 0.5) * 0.5; /* Even faster movement */
+      this.r = Math.random() * 1.5 + 1;
+    }
+    update() {
+      this.x += this.vx; this.y += this.vy;
+      if (this.x < 0) this.x = W; if (this.x > W) this.x = 0;
+      if (this.y < 0) this.y = H; if (this.y > H) this.y = 0;
+    }
+    draw(color) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+  }
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    init();
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function init() {
+    particles = Array.from({ length: COUNT }, () => new Particle());
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    const isLight = document.documentElement.classList.contains('light');
+
+    /* Canvas opacity: lighter in light mode */
+    canvas.style.opacity = isLight ? '0.2' : '0.35'; 
+
+    const dotColor  = isLight ? 'rgba(15,23,42,0.4)'  : 'rgba(226,232,240,0.45)';
+    const lineColor = isLight ? 'rgba(15,23,42,0.15)'  : 'rgba(226,232,240,0.15)';
+
+    for (let i = 0; i < COUNT; i++) {
+      for (let j = i + 1; j < COUNT; j++) {
+        const p1 = particles[i], p2 = particles[j];
+        const dx = p1.x - p2.x, dy = p1.y - p2.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < DISTANCE) {
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = lineColor;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    particles.forEach(p => { p.update(); p.draw(dotColor); });
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+/* ── SCROLL REVEAL ── */
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+/* ── THEME TOGGLE ── */
+const btn = document.getElementById('theme-toggle');
+const icon = btn.querySelector('i');
+
+function updateIcon(isLight) {
+  icon.className = isLight ? 'ti ti-moon' : 'ti ti-sun';
+}
+
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('light');
+  const isLight = document.documentElement.classList.contains('light');
+  updateIcon(isLight);
+  localStorage.setItem('hp-theme', isLight ? 'light' : 'dark');
+});
+
+/* Auto Update Year */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Image Modal Logic */
+const imgModal = document.getElementById('img-modal');
+const modalImg = document.getElementById('modal-img');
+
+// ப்ராஜெக்ட் கார்டுகள் மற்றும் ஹீரோ இமேஜ் இரண்டிற்கும் மோடல் வேலை செய்யும்
+document.querySelectorAll('.proj-card, .hero-pic-frame').forEach(el => {
+  el.addEventListener('click', (e) => {
+    // லிங்க்கை கிளிக் செய்தால் மோடல் ஓபன் ஆகாது
+    if (e.target.closest('.proj-link')) return;
+    
+    const img = el.querySelector('img');
+    if (img) {
+      modalImg.src = img.dataset.full || img.src;
+      imgModal.classList.add('open');
+      document.body.style.overflow = 'hidden'; // ஸ்க்ரோல் செய்வதை நிறுத்தும்
+    }
+  });
+});
+
+imgModal.addEventListener('click', () => {
+  imgModal.classList.remove('open');
+  document.body.style.overflow = ''; // ஸ்க்ரோலை மீண்டும் அனுமதிக்கும்
+});
+
+/* Load saved theme on page load */
+if (localStorage.getItem('hp-theme') === 'light') {
+  document.documentElement.classList.add('light');
+  updateIcon(true);
+}
+</script>
+</body>
+</html>
