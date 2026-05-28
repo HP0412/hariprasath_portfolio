@@ -464,7 +464,7 @@
     .tl-org { font-family: var(--display); font-size: 18px; font-style: italic; color: var(--green); margin-bottom: 10px; }
     .tl-detail { font-size: 13px; color: var(--muted); line-height: 1.75; }
 
-    .cert-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .cert-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .cert-card {
       background: var(--card); border: 1px solid var(--border); /* Reverted to 1px */
       border-radius: var(--r); padding: 1.5rem;
@@ -477,7 +477,7 @@
     .cert-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
     .cert-org { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; }
     .cert-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin-top: 8px; }
-    .ach-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .ach-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .ach-card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: var(--r); padding: 2rem 1.5rem;
@@ -599,6 +599,8 @@
     ::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 2px; }
 
     @media (max-width: 768px) {
+      .cert-row, .ach-row { grid-template-columns: 1fr !important; }
+      
       nav { 
         padding: 0.8rem 1.25rem; 
         height: auto; 
@@ -621,7 +623,7 @@
       .nav-links::-webkit-scrollbar { display: none; } /* Chrome/Safari */
       .nav-right { position: static; }
       
-      .hero { min-height: auto; padding-top: 130px; }
+      .hero { min-height: auto; padding-top: 150px; }
       .hero-inner { flex-direction: column; gap: 1.5rem; text-align: center; padding: 0 1.25rem 3rem; }
       .hero-pic-wrap > div:first-child { margin-top: 1rem !important; }
 
@@ -634,9 +636,8 @@
       .tl-item { flex-direction: column; gap: 1rem; }
       .tl-left { width: auto; }
       footer { flex-direction: column; gap: .5rem; text-align: center; }
-      .cert-row { grid-template-columns: repeat(1, 1fr); }
     }
-    @media (max-width: 1024px) {
+    @media (min-width: 769px) and (max-width: 1100px) {
       .cert-row { grid-template-columns: repeat(2, 1fr); }
     }
 
